@@ -1,0 +1,80 @@
+<div class="container home-page">
+
+  <div class="banner" *showAuthed="false">
+    <div class="container">
+      <h1 class="logo-font">Forex</h1>
+      <p>One place to check your forex amounts</p>
+    </div>
+  </div>
+
+  <div class="settings-page" *showAuthed="true">
+    <div class="container page">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 col-xs-12">
+          <h1 class="text-xs-center">Currency Conversion</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="card-deck">
+    <mat-card class="card" *ngFor="let product of products; let i = index">
+      <mat-card-header>
+        <div mat-card-avatar class="{{product.class}}"></div>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.brandName}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <img mat-card-image src="{{product.largeImage}}" alt="Product Photo">
+
+      <mat-card-content>
+        <p>
+          {{product.shortDescription}}
+        </p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <form action="">
+          <!-- Source Currency -->
+          <mat-form-field class="currency-input">
+            <mat-select placeholder="Currency" [(value)]="product.currency" [(ngModel)]="product.currency" name="currency">
+              <mat-option *ngFor="let currency of currency" [value]="currency.value">
+                {{ currency.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Amount in Source Currency -->
+          <mat-form-field class="price-input">
+            <input matInput placeholder="Price" type="number" [(ngModel)]="product.salePrice" name="price">
+          </mat-form-field>
+
+          <!-- Target Currency -->
+          <mat-form-field class="currency-input">
+            <mat-select placeholder="Convert To" [(ngModel)]="product.targetCurrency" name="targetCurrency" required #targetCurrency>
+              <mat-option *ngFor="let currency of currency" [value]="currency.value">
+                {{ currency.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Amount in Target Currency -->
+          <mat-form-field class="price-input">
+            <input matInput placeholder="Converted Price" type="number" [(ngModel)]="product.convertedPrice" name="convertedPrice" disabled>
+          </mat-form-field>
+
+          <!-- Convert Button -->
+          <button mat-raised-button class="product-add form-control" (click)="convertCurrency(product, i)" name="price" [disabled]="!targetCurrency.value">
+            CONVERT
+          </button>
+        </form>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <br>
+
+</div>

@@ -1,0 +1,35 @@
+a {
+  color: #eb8c00;
+}
+
+.btn-primary {
+  background-color: #eb8c00;
+  border-color: #eb8c00;
+}
+
+.map-container {
+  background-color: #ffffff;
+  padding: 10px 0 10px 0;
+  /* display: flex;
+  flex-direction: column; */
+
+}
+
+.map-container > * {
+  width: 100%;
+}
+
+.mat-form-field {
+  display: inline;
+  font-size: x-large;
+}
+
+agm-map, .map {
+  height: 500px;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}

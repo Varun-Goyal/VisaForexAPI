@@ -1,0 +1,27 @@
+a {
+  color: #eb8c00;
+}
+
+.btn-primary {
+  background-color: #eb8c00;
+  border-color: #eb8c00;
+}
+
+.settings-container {
+  background-color: #ffffff;
+  padding: 10px 0 10px 0;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-container > * {
+  width: 100%;
+}
+
+.mat-form-field {
+  display: inline;
+  font-size: x-large;
+}

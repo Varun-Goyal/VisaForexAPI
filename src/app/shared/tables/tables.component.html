@@ -1,0 +1,74 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'positionWidth'"> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element" [ngClass]="'positionWidth'"> {{element.position}} </mat-cell>
+    </ng-container>
+
+    <!-- Item Column -->
+    <ng-container matColumnDef="item">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Item </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.item}} </mat-cell>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'price'"> Price </mat-header-cell>
+      <mat-cell *matCellDef="let element" [satPopoverAnchorFor]="p" (click)="p.open()" [ngClass]="'price'">
+        <ng-container *ngIf="element.price">
+          {{element.price}}
+        </ng-container>
+        <span class="add-price" *ngIf="!element.price">
+          Add a price
+        </span>
+
+        <sat-popover #p
+            hasBackdrop
+            xPosition="after"
+            yPosition="below"
+            (closed)="update(element, $event)">
+          <inline-edit [value]="element.price"></inline-edit>
+        </sat-popover>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Source Currency Column -->
+    <ng-container matColumnDef="sourceCurrency">
+      <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'sourceCurrency'"> Source Currency </mat-header-cell>
+      <mat-cell *matCellDef="let element" [ngClass]="'sourceCurrency'">
+        <mat-form-field>
+          <mat-select>
+            <mat-option *ngFor="let currency of currency" [value]="currency.value">
+              {{ currency.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Target Currency Column -->
+    <ng-container matColumnDef="targetCurrency">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Target Currency </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-form-field>
+          <mat-select>
+            <mat-option *ngFor="let currency of currency" [value]="currency.value">
+              {{ currency.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Converted Amount Column -->
+    <ng-container matColumnDef="convertedAmount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Converted Amount </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.convertedAmount}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

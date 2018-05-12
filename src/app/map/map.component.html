@@ -1,0 +1,65 @@
+<div class="map-page">
+  <div class="container page">
+    <div class="row map-container">
+      <div class="col-md-4 col-xs-12">
+
+        <h1 class="text-xs-center">Merchant Locator</h1>
+        <form class="map-container">
+          <fieldset>  
+            <!-- Merchant Name -->
+            <mat-form-field class="price-input">
+              <input 
+                matInput 
+                placeholder="Merchant Name" 
+                type="text" 
+                [(ngModel)]="merchant.merchantName" 
+                name="merchantName" 
+                required 
+                #merchantName>
+            </mat-form-field>
+            <!-- Merchant Postal Code -->
+            <mat-form-field class="price-input">
+              <input 
+                matInput 
+                placeholder="Zip Code" 
+                type="text" 
+                [(ngModel)]="merchant.zipCode" 
+                name="zipCode" 
+                required 
+                #zipCode>
+            </mat-form-field>
+            <!-- Search Merchant -->
+            <button 
+              mat-raised-button 
+              class="product-add form-control" 
+              (click)="searchMerchant(merchant)" 
+              name="zipCode" 
+              [disabled]="!zipCode.value">
+              LOCATE
+            </button>
+          </fieldset>
+        </form>   
+      </div>
+        
+      <div class="col-md-8 col-xs-12">
+        <div class="map" #map></div>
+        <!-- this creates a google map on the page with the given lat/lng from -->
+        <!-- the component as the initial center of the map: -->
+        <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker [latitude]="lat" [longitude]="lng">
+            <agm-info-window>
+              <strong>{{visaMerchantName}},</strong>
+              <strong>{{merchantCity}}</strong>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map> -->
+        <!-- <button 
+          mat-raised-button 
+          class="product-add form-control" 
+          (click)="drop()">
+          DROP MARKERS
+        </button> -->
+      </div>
+    </div>
+  </div>
+</div>

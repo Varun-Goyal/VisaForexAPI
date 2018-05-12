@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="mat-subheading-2">Enter Price</div>
+
+  <mat-form-field>
+    <input matInput name="price" [(ngModel)]="price">
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button type="button" color="primary" (click)="onCancel()">CANCEL</button>
+    <button mat-button type="submit" color="primary">SAVE</button>
+  </div>
+</form>

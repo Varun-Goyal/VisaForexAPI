@@ -1,0 +1,7 @@
+{
+  "/archapp-web/*":{
+    "target":"http://34.202.48.37:8080",
+    "sercure": false,
+    "loglevel": "debug"
+  }
+}

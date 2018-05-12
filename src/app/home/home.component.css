@@ -1,0 +1,59 @@
+.nav-link {
+  cursor:pointer;
+}
+
+.example-card {
+  width: 400px;
+}
+
+.home-page .banner {
+  background: #eb8c00;
+}
+
+.example-button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.product-price {
+  color: #2f7c2f;
+  font-weight: bold;
+}
+
+.product-add {
+  float: right;
+  bottom: 5px;
+}
+
+.price-input, .currency-input {
+  font-weight: bold;
+}
+
+.mat-grid-list .mat-grid-tile .mat-figure {
+  height: 80px !important;
+}
+
+mat-card-title {
+  font-weight: bold;
+}
+
+mat-card-content, .mat-card-image {
+  margin-bottom: 0;
+}
+
+mat-card>mat-card-actions:last-child {
+  padding-bottom: 36px;
+}
+
+mat-card-actions {
+  margin: 0;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.mat-input-element:disabled {
+  color: blue;
+}
